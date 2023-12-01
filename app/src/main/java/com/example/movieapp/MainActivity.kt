@@ -29,8 +29,6 @@ class MainActivity : ComponentActivity() {
 
         movieViewModel = ViewModelProvider (this).get(MovieViewModel::class.java)
 
-        //movieViewModel = MovieViewModel()
-
         setContent {
             MovieAppTheme {
                 // A surface container using the 'background' color from the theme
