@@ -3,10 +3,15 @@
 The app can search for movies with user specified text in the title. The result is shown as a list. It uses OMDb(Open Movie Database).
 
 Language : Kotlin
+
 UI : Jetpack Compose
+
 Background task : Kotlin coroutines and kotlin flows
+
 API call : Retrofit
+
 Dependency Injection : Dagger Hilt
+
 
 
 Screenshots : 
