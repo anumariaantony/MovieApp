@@ -1,4 +1,4 @@
-package com.example.movieapp.ui.screen
+package com.example.movieapp.presentation.ui.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -17,9 +17,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
-import com.example.movieapp.model.Movie
-import com.example.movieapp.viewmodel.MovieViewModel
+import com.example.movieapp.domain.model.Movie
+import com.example.movieapp.presentation.viewmodel.MovieViewModel
 
 /**
  * Displays each movie list in rows

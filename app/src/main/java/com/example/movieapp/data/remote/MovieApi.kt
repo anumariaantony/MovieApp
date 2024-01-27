@@ -1,6 +1,6 @@
-package com.example.movieapp.repository
+package com.example.movieapp.data.remote
 
-import com.example.movieapp.model.MovieList
+import com.example.movieapp.domain.model.MovieList
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

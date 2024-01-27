@@ -1,4 +1,4 @@
-package com.example.movieapp.model
+package com.example.movieapp.domain.model
 
 data class Movie(
     val Poster: String,

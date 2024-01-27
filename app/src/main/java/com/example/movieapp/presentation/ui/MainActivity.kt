@@ -1,4 +1,4 @@
-package com.example.movieapp
+package com.example.movieapp.presentation.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -9,28 +9,28 @@ import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
-import androidx.lifecycle.ViewModelProvider
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.movieapp.ui.theme.MovieAppTheme
-import com.example.movieapp.ui.screen.MovieListScreen
-import com.example.movieapp.ui.screen.MovieSearchScreen
-import com.example.movieapp.viewmodel.MovieViewModel
+import com.example.movieapp.R
+import com.example.movieapp.presentation.theme.MovieAppTheme
+import com.example.movieapp.presentation.ui.screen.MovieListScreen
+import com.example.movieapp.presentation.ui.screen.MovieSearchScreen
+import com.example.movieapp.presentation.viewmodel.MovieViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     //Omdb Api key
     private val apiKeyValue = "c6f8b367"
-    private lateinit var movieViewModel: MovieViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        movieViewModel = ViewModelProvider (this).get(MovieViewModel::class.java)
-
         setContent {
             MovieAppTheme {
+                val movieViewModel = hiltViewModel<MovieViewModel>()
                 // A surface container using the 'background' color from the theme
                 Scaffold(
                     //Top bar showing the name of the App

@@ -1,19 +1,22 @@
-package com.example.movieapp.viewmodel
+package com.example.movieapp.presentation.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.movieapp.model.Movie
-import com.example.movieapp.repository.RetrofitInstance
+import com.example.movieapp.domain.model.Movie
+import com.example.movieapp.domain.repository.MovieRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
 const val  TAG = "MovieViewModel"
 
-class MovieViewModel : ViewModel() {
+@HiltViewModel
+class MovieViewModel @Inject constructor (private val movieRepository: MovieRepository) : ViewModel() {
 
     //List of movies in the Movie list screen
     private val _movies = MutableStateFlow(listOf<Movie>())
@@ -25,7 +28,7 @@ class MovieViewModel : ViewModel() {
      */
     fun getMoviesList(apiKey : String, movieTitle : String) {
         viewModelScope.launch(Dispatchers.IO) {
-            val response = RetrofitInstance.api.getMovies(apiKey, movieTitle)
+            val response = movieRepository.getMovies(apiKey, movieTitle)
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful && response.body() != null) {
                     _movies.value = response.body()!!.Search

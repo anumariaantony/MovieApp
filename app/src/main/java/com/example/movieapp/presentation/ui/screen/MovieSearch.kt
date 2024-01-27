@@ -1,4 +1,4 @@
-package com.example.movieapp.ui.screen
+package com.example.movieapp.presentation.ui.screen
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
@@ -10,8 +10,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.example.movieapp.viewmodel.MovieViewModel
+import com.example.movieapp.presentation.viewmodel.MovieViewModel
 
 /**
  * Composable for the movie search screen with text field and search button

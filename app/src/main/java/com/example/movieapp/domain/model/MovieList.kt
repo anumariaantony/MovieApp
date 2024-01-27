@@ -1,4 +1,6 @@
-package com.example.movieapp.model
+package com.example.movieapp.domain.model
+
+import com.example.movieapp.domain.model.Movie
 
 data class MovieList(
     val Search: List<Movie>,
