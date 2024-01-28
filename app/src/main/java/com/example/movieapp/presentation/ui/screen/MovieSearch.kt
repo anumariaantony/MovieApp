@@ -18,7 +18,7 @@ import com.example.movieapp.presentation.viewmodel.MovieViewModel
  * Composable for the movie search screen with text field and search button
  */
 @Composable
-fun MovieSearchScreen(apiKeyValue : String, movieViewModel: MovieViewModel, navController: NavController) {
+fun MovieSearchScreen(movieViewModel: MovieViewModel, navController: NavController) {
 
     var textFieldState = remember {
         mutableStateOf("")
@@ -43,7 +43,7 @@ fun MovieSearchScreen(apiKeyValue : String, movieViewModel: MovieViewModel, navC
             onClick = {
             var movieTitle = textFieldState.value
             //Gets the list of movies
-            movieViewModel.getMoviesList(apiKeyValue, movieTitle)
+            movieViewModel.getMoviesList(movieTitle)
             //Navigate to movie list screen
             navController.navigate("movieListScreen") }
         ) {

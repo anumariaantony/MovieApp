@@ -4,5 +4,5 @@ import com.example.movieapp.domain.model.MovieList
 import retrofit2.Response
 
 interface MovieRepository {
-    suspend fun getMovies(apiKey: String, movieTitle : String) : Response<MovieList>
+    suspend fun getMovieList(movieTitle : String) : Response<MovieList>
 }

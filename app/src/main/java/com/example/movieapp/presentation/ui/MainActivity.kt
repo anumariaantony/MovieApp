@@ -23,9 +23,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    //Omdb Api key
-    private val apiKeyValue = "c6f8b367"
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -41,7 +38,7 @@ class MainActivity : ComponentActivity() {
                         )
                     }
                 ) {
-                    ComposeNavigation(apiKeyValue,movieViewModel)
+                    ComposeNavigation(movieViewModel)
                 }
             }
         }
@@ -53,11 +50,11 @@ class MainActivity : ComponentActivity() {
  * Composable for navigating from movie search screen to movie list screen
  */
 @Composable
-fun ComposeNavigation(apiKeyValue: String, movieViewModel : MovieViewModel) {
+fun ComposeNavigation(movieViewModel : MovieViewModel) {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "movieSearchScreen") {
         composable("movieSearchScreen") {
-            MovieSearchScreen(apiKeyValue,movieViewModel, navController)
+            MovieSearchScreen(movieViewModel, navController)
         }
         composable("movieListScreen") {
             MovieListScreen(movieViewModel)

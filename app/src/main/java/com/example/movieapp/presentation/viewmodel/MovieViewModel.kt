@@ -26,9 +26,9 @@ class MovieViewModel @Inject constructor (private val movieRepository: MovieRepo
     /**
      * Gets the list of movies with the specified string using retrofit
      */
-    fun getMoviesList(apiKey : String, movieTitle : String) {
+    fun getMoviesList(movieTitle : String) {
         viewModelScope.launch(Dispatchers.IO) {
-            val response = movieRepository.getMovies(apiKey, movieTitle)
+            val response = movieRepository.getMovieList(movieTitle)
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful && response.body() != null) {
                     _movies.value = response.body()!!.Search
