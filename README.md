@@ -1,12 +1,18 @@
 
 # MovieApp
-Searches for movies in OMDb(Open Movie Database) with a specified text in the title.The result is shown as list.
+The app can search for movies with user specified text in the title. The result is shown as a list. It uses OMDb(Open Movie Database).
 
-Fully written in kotlin.
+Language : Kotlin
 
-Jetpack Compose is used for UI and navigation.
+UI : Jetpack Compose
 
-Kotlin Corouitnes and Retrofit are used to make the Api call.
+Background task : Kotlin coroutines and kotlin flows
+
+API call : Retrofit
+
+Dependency Injection : Dagger Hilt
+
+
 
 Screenshots : 
 
